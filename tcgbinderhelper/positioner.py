@@ -13,6 +13,10 @@ class CardPosition(object):
         self.slot = slot
         self.side = side
 
+    def description(self)->str:
+        readable_side = 'Front' if self.side == Side.FRONT else 'Back'
+        return f"{readable_side} of page {self.page}, slot {self.slot}"
+
 
 def find_position(card_number) -> CardPosition:
     print(f'Finding position for card {card_number}')

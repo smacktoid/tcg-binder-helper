@@ -22,6 +22,13 @@ class TestPositioner(unittest.TestCase):
         self.assertEqual(1, position.slot)
         self.assertEqual(Side.FRONT, position.side)
 
+    def test_position_description_front_slot(self):
+        position = find_position(5)
+        self.assertEqual('Front of page 1, slot 5', position.description())
+
+    def test_position_description_back_slot(self):
+        position = find_position(30)
+        self.assertEqual('Back of page 2, slot 3', position.description())
 
 if __name__ == '__main__':
     unittest.main()

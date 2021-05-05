@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <title>TCG Binder Helper</title>
-</head>
-<body>
-<h1> TCG Binder Helper </h1>
-<p> If you've ever spent time adding cards from games such as Magic The Gathering or Warhammer Underworlds into the pages of a collector's binder you will know how tricky it is to keep your collection in order.  </p>
-<p> This site aims to help by calculating the page number and position for your cards.</p>
-</body>
+    <!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+        <title>TCG Binder Helper</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+    <div class="container">
+        <h1> TCG Binder Helper </h1>
+        <p> If you've ever spent time adding cards from games such as Magic The Gathering or Warhammer Underworlds into the pages of a collector's binder you will know how tricky it is to keep your collection in order.  </p>
+        <p> This site aims to help by calculating the page number and position for your cards.</p>
+
+        <form id="cardInput" method="post">
+            <label for="cardNo">Card number:</label>
+            <input type="text" id="cardNo" name="cardNo"><br><br>
+            <input type="submit" value="Find position">
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <p>{{position.description() if position}}</p>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </body>
 </html>
