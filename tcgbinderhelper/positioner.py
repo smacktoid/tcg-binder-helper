@@ -13,6 +13,13 @@ class CardPosition(object):
         self.slot = slot
         self.side = side
 
+        card_index = (page * 18) - 18 + 1
+
+        if side == Side.BACK:
+            card_index += 9
+
+        self.page_card_sequence = range(card_index, card_index + 9)
+
     def description(self)->str:
         readable_side = 'Front' if self.side == Side.FRONT else 'Back'
         return f"{readable_side} of page {self.page}, slot {self.slot}"

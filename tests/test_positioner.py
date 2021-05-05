@@ -30,5 +30,11 @@ class TestPositioner(unittest.TestCase):
         position = find_position(30)
         self.assertEqual('Back of page 2, slot 3', position.description())
 
+    def test_position_includes_card_sequence_for_page(self):
+        position = find_position(19)
+        expected_sequence = range(19, 28)
+
+        self.assertEqual(expected_sequence, position.page_card_sequence)
+
 if __name__ == '__main__':
     unittest.main()
