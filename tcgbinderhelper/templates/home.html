@@ -26,6 +26,22 @@
         </form>
     </div>
     {% if position %}
+        {% macro render_grid(position) -%}
+            {%for i in range(0, 3)%}
+                {{ render_row(row_num=i+1, position=position) }}
+            {%endfor%}
+        {%- endmacro %}
+
+    {% macro render_row(row_num, position) -%}
+        <div class="row">
+            {%for i in range(row_num*3-3, row_num*3)%}
+                    <div class="col-xs-4 p-2">
+                        {{ render_slot(current_slot=i+1, current_card=position.page_card_sequence[i], position_slot=position.slot)}}
+                    </div>
+            {%endfor%}
+        </div>
+    {%- endmacro %}
+
     {% macro render_slot(current_slot, current_card, position_slot) -%}
         {% if current_slot == position_slot %}
             <b>
@@ -35,31 +51,12 @@
             </b>
         {% endif %}
     {%- endmacro %}
+
     <div class="container mt-5 offset-md-5">
         <div class="row">
             <p>{{position.description()}}</p>
         </div>
-        <div class="row">
-            {%for i in range(0, 3)%}
-            <div class="col-xs-4 p-2">
-                {{ render_slot(current_slot=i+1, current_card=position.page_card_sequence[i], position_slot=position.slot)}}
-            </div>
-            {%endfor%}
-        </div>
-        <div class="row">
-            {%for i in range(3, 6)%}
-            <div class="col-xs-4 p-2">
-                {{ render_slot(current_slot=i+1, current_card=position.page_card_sequence[i], position_slot=position.slot)}}
-            </div>
-            {%endfor%}
-        </div>
-        <div class="row">
-            {%for i in range(6, 9)%}
-            <div class="col-xs-4 p-2">
-                {{ render_slot(current_slot=i+1, current_card=position.page_card_sequence[i], position_slot=position.slot)}}
-            </div>
-            {%endfor%}
-        </div>
+        {{ render_grid(position) }}
     </div>
     {% endif %}
     </div>
